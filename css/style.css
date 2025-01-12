@@ -1,0 +1,312 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+::after,
+::before {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+}
+
+h1 {
+    font-weight: 600;
+    font-size: 1.5rem;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+.wrapper {
+    display: flex;
+}
+
+.main {
+    min-height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    transition: all 0.35s ease-in-out;
+    background-color: #fafbfe;
+}
+
+#sidebar {
+    width: 70px;
+    min-width: 70px;
+    z-index: 1000;
+    transition: all .25s ease-in-out;
+    background-color: #0e2238;
+    display: flex;
+    flex-direction: column;
+}
+
+#sidebar.expand {
+    width: 260px;
+    min-width: 260px;
+}
+
+.toggle-btn {
+    background-color: transparent;
+    cursor: pointer;
+    border: 0;
+    padding: 1rem 1.5rem;
+}
+
+.toggle-btn i {
+    font-size: 1.5rem;
+    color: #FFF;
+}
+
+.sidebar-logo {
+    margin: auto 0;
+}
+
+.sidebar-logo a {
+    color: #FFF;
+    font-size: 1.15rem;
+    font-weight: 600;
+}
+
+#sidebar:not(.expand) .sidebar-logo,
+#sidebar:not(.expand) a.sidebar-link span {
+    display: none;
+}
+
+.sidebar-nav {
+    padding: 2rem 0;
+    flex: 1 1 auto;
+}
+
+a.sidebar-link {
+    padding: .625rem 1.625rem;
+    color: #FFF;
+    display: block;
+    font-size: 0.9rem;
+    white-space: nowrap;
+    border-left: 3px solid transparent;
+}
+
+.sidebar-link i {
+    font-size: 1.1rem;
+    margin-right: .75rem;
+}
+
+a.sidebar-link:hover {
+    background-color: rgba(255, 255, 255, .075);
+    border-left: 3px solid #3b7ddd;
+}
+
+.sidebar-item {
+    position: relative;
+}
+
+#sidebar:not(.expand) .sidebar-item .sidebar-dropdown {
+    position: absolute;
+    top: 0;
+    left: 70px;
+    background-color: #0e2238;
+    padding: 0;
+    min-width: 15rem;
+    display: none;
+}
+
+#sidebar:not(.expand) .sidebar-item:hover .has-dropdown+.sidebar-dropdown {
+    display: block;
+    max-height: 15em;
+    width: 100%;
+    opacity: 1;
+}
+
+#sidebar.expand .sidebar-link[data-bs-toggle="collapse"]::after {
+    border: solid;
+    border-width: 0 .075rem .075rem 0;
+    content: "";
+    display: inline-block;
+    padding: 2px;
+    position: absolute;
+    right: 1.5rem;
+    top: 1.4rem;
+    transform: rotate(-135deg);
+    transition: all .2s ease-out;
+}
+
+#sidebar.expand .sidebar-link[data-bs-toggle="collapse"].collapsed::after {
+    transform: rotate(45deg);
+    transition: all .2s ease-out;
+}
+
+.table {
+    margin-top: 20px;
+}
+
+#pagination {
+    margin-bottom: 0; /* Ensure pagination is aligned with the dropdown */
+}
+
+#rowsPerPageSelector {
+    font-size: 14px; /* Slightly smaller font for compact design */
+    border-radius: 5px; /* Smooth edges */
+}
+
+
+.card {
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+}
+
+.card-header {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.card-body {
+    text-align: center;
+}
+
+h1 {
+    font-weight: bold;
+    color: #333;
+}
+
+.table-responsive table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table-responsive th,
+.table-responsive td {
+    padding: 8px;
+    border: 1px solid #ddd;
+}
+
+@media screen and (max-width: 600px) {
+    .table-responsive table,
+    .table-responsive thead,
+    .table-responsive tbody,
+    .table-responsive th,
+    .table-responsive td,
+    .table-responsive tr {
+        display: block;
+    }
+
+    .table-responsive thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+
+    .table-responsive tr {
+        margin-bottom: 20px;
+        border: 1px solid #ddd;
+    }
+
+    .table-responsive td {
+        border: none;
+        position: relative;
+        padding-left: 50%;
+    }
+
+    .table-responsive td:before {
+        position: absolute;
+        left: 6px;
+        content: attr(data-label);
+        font-weight: bold;
+    }
+
+    th, td {
+        text-align: left; /* Align all text to the left for smaller screens */
+    }
+}
+
+.highlight-empty {
+    border: 2px solid red;
+    background-color: #f8d7da;
+}
+
+.quote-header {
+    background-color: #f8f9fa; /* สีพื้นหลังอ่อน */
+    border-left: 5px solid #007bff; /* เส้นข้างซ้ายสีน้ำเงิน */
+    padding: 10px 20px;
+    font-size: 1.2em;
+    font-style: italic;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+
+
+/* Custom styling for the toast container positioned at the top-right */
+.toast-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1050;
+}
+
+.toast {
+    max-width: 350px;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+.toast-body {
+    padding: 10px 20px;
+}
+
+/* Styling for different toast types */
+.toast-success {
+    background-color: #28a745; /* Green for Success */
+}
+
+.toast-error {
+    background-color: #dc3545; /* Red for Error */
+}
+
+.toast-info {
+    background-color: #17a2b8; /* Blue for Info */
+}
+
+.toast-warning {
+    background-color: #ffc107; /* Yellow for Warning */
+}
+
+
+/* Styling the report title div */
+.report-title {
+    background-color: #e3f2fd; /* Light blue background for the report title */
+    padding: 10px; /* Add space inside the div */
+    border-radius: 12px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow */
+    margin: 20px 0; /* Space around the div */
+    text-align: center; /* Center text */
+    font-family: 'Arial', sans-serif; /* Elegant font */
+    font-weight: bold; /* Bold text */
+    color: #1e88e5; /* Blue text color for emphasis */
+    border: 3px solid #1e88e5; /* Matching blue border */
+    transition: transform 0.3s ease; /* Smooth transition effect */
+}
+
+/* Hover effect for the report title */
+.report-title:hover {
+    transform: scale(1.05); /* Slightly enlarge the div on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Enhanced shadow */
+}
+
+/* Styling for the paragraph inside the report title */
+.report-title p {
+    font-size: 1.5rem; /* Larger text for the title */
+    margin: 0; /* Remove default margins */
+}
+
+/* Styling for the employee name in the span */
+#employeeNameTransaction, #employeeNameReport {
+    font-size: 1.8rem; /* Larger font for the name */
+    color: #01579b; /* Darker blue for emphasis */
+    font-weight: bold; /* Bold employee name */
+}
